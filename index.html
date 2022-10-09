@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
+    <style>
+        button{
+            height: 70px;
+            width: 250px;
+            border-radius: 10px;
+            font-size: 30px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            display: flex;
+            justify-content: center;
+        }
+        #answer{
+            margin-left: 16.5vw;
+            height: 70px;
+            width: 65.5vw;
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: end;
+            padding-right: 20px;
+            font-size: xx-large;
+        }
+        body{
+            background-color: rgb(17, 17, 47);
+        }
+        h1{
+            color: aqua;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        hr{
+            width: 60vw;
+            margin: 0 0 0 20vw;
+        }
+        a{
+            color: aqua;
+        }
+        h3{
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; padding: 20px 0 20px 0; font-size:50px;">SIMPLE CALCULATOR</h1>
+    <input type="text" id="answer" name="answer" placeholder="Ans" readonly>
+    <table>
+        <tr>
+            <td><button style="background-color : red" onclick="document.getElementById('answer').value= ''">C</button></td>
+            <td><button onclick="insert('(')">(</button></td>
+            <td><button onclick="insert(')')">)</button></td>
+            <td><button onclick="insert('%')">%</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="insert(7)">7</button></td>
+            <td><button onclick="insert(8)">8</button></td>
+            <td><button onclick="insert(9)">9</button></td>
+            <td><button onclick="insert('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="insert(4)">4</button></td>
+            <td><button onclick="insert(5)">5</button></td>
+            <td><button onclick="insert(6)">6</button></td>
+            <td><button onclick="insert('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="insert(1)">1</button></td>
+            <td><button onclick="insert(2)">2</button></td>
+            <td><button onclick="insert(3)">3</button></td>
+            <td><button onclick="insert('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="insert(0)">0</button></td>
+            <td><button onclick="insert('.')">.</button></td>
+            <td><button onclick="insert('/')">/</button></td>
+            <td><button  onclick="equal()" style="background-color:green">=</button></td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <h3 style="color:white;">Made by - <a href="https://github.com/ayush-dudhani">Ayush Dudhani</a> </h3>
+    <script>
+        function insert(x){
+            document.getElementById("answer").value = document.getElementById("answer").value + x;
+        }
+
+        function equal(){
+            var exp = document.getElementById("answer").value;
+            if(exp){
+                document.getElementById("answer").value = eval(exp);
+            }
+        }
+    </script>
+</body>
+</html>
